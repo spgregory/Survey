@@ -1,0 +1,47 @@
+﻿@model Survey.ViewModel.SurveyVM
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("SurveyResult", "Survey"))
+{
+  
+
+    for (var x = 0; x < Model.Questions.Count; x++)
+    {
+      
+        <div>
+            @Html.HiddenFor(m=>m.Options[x].Id)
+            @Html.HiddenFor(m=>m.Options[x].OptionOne)
+            @Html.HiddenFor(m=>m.Options[x].OptionTwo)
+            @Html.HiddenFor(m=>m.Options[x].OptionThree)
+            @Html.HiddenFor(m=>m.Options[x].OptionFour)
+            @Html.HiddenFor(m => m.Options[x].OptionOneValue)
+            @Html.HiddenFor(m => m.Options[x].OptionTwoValue)
+            @Html.HiddenFor(m => m.Options[x].OptionThreeValue)
+            @Html.HiddenFor(m => m.Options[x].OptionFourValue)
+         
+            @Html.HiddenFor(m=>m.Questions[x].Id)
+            @Html.HiddenFor(m=>m.Questions[x].QuestionText)
+            @Html.LabelFor(m=>m.Questions[x].QuestionText)
+
+          
+
+            @Html.HiddenFor(m=> Model.Options[x].Id)
+            @Html.HiddenFor(m => m.Options[x].OptionOne)
+            @Html.RadioButtonFor(m=> @Model.Questions[x].Option_Name, @Model.Options[x].OptionOne)@Model.Options[x].OptionOne
+            @Html.HiddenFor(m=>m.Options[x].OptionTwo)
+            @Html.RadioButtonFor(m => @Model.Questions[x].Option_Name, @Model.Options[x].OptionTwo)@Model.Options[x].OptionTwo
+            @Html.HiddenFor(m => m.Options[x].OptionThree)
+            @Html.RadioButtonFor(m => @Model.Questions[x].Option_Name, @Model.Options[x].OptionThree)@Model.Options[x].OptionThree
+            @Html.HiddenFor(m => m.Options[x].OptionFour)
+            @Html.RadioButtonFor(m => @Model.Questions[x].Option_Name, @Model.Options[x].OptionFour)@Model.Options[x].OptionFour
+           
+        </div>
+    }
+
+    <button type="submit">Submit</button>
+
+
+}

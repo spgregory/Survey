@@ -1,0 +1,28 @@
+﻿@model Survey.ViewModel.SurveyVM
+
+@{
+    ViewBag.Title = "SurveyResult";
+}
+
+<h2>SurveyResult</h2>
+
+<div>
+    <h1>Questions</h1>
+</div>
+
+@for (var i = 0; i < @Model.Questions.Count; i++)
+{
+
+ <div>
+     <p>@Model.Questions[i].QuestionText</p>
+     <p>@Model.Options[i].OptionOne</p>
+     <p>@Model.Options[i].OptionOneValue</p>
+     <p>@Model.Options[i].OptionTwo</p>
+     <p>@Model.Options[i].OptionTwoValue</p>
+     <p>@Model.Options[i].OptionThree</p>
+     <p>@Model.Options[i].OptionThreeValue</p>
+     <p>@Model.Options[i].OptionFour</p>
+     <p>@Model.Options[i].OptionFourValue</p>
+ </div>
+
+}
